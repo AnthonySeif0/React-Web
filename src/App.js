@@ -26,7 +26,7 @@ function App() {
       amount: 200.50,
       date: new Date(2021, 5, 12),
     },
-  ];    console.log("hii");
+  ]; 
 
   return (
     <div className="App">
