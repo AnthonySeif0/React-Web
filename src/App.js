@@ -1,7 +1,7 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -24,19 +24,19 @@ function App() {
     {
       id: "e4",
       title: "New Desk (Wooden)",
-      amount: 200.50,
+      amount: 200.5,
       date: new Date(2021, 5, 12),
     },
-  ]; 
+  ];
 
   // React.createElement Way
 
   return React.createElement(
-    'div', 
+    "div",
     {},
-    React.createElement('h2',{},"Let's get started!"),
-    React.createElement(Expenses, {items: expenses})
-  )
+    React.createElement("h2", {}, "Let's get started!"),
+    React.createElement(Expenses, { items: expenses })
+  );
 
   // HTML Way
 
@@ -46,6 +46,6 @@ function App() {
   //     <Expenses items={expenses} />
   //   </div>
   // );
-}
+};
 
 export default App;
