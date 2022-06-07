@@ -4,6 +4,9 @@ import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
   const { title, date, amount } = props;
+  const clickHandler = () => {
+    console.log("Clicked!");
+  };
 
   // Imperative Way to add listener
   // document.getElementById('root').addEventListener()
@@ -15,13 +18,16 @@ const ExpenseItem = (props) => {
         <h2>{title}</h2>
         <div className="expense-item_price">${amount}</div>
       </div>
-      <button
+      <button onClick={clickHandler}>Change Title</button>
+
+      {/* Works but Not too good  */}
+      {/* <button
         onClick={() => {
           console.log("Clicked!");
         }}
       >
         Change Title
-      </button>
+      </button> */}
     </Card>
   );
 };
