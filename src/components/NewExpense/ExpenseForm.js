@@ -2,48 +2,71 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 import "./NewExpense.css";
 const ExpenseForm = () => {
-
-  //the logic is correct but here each data is independent from the other 
-  // const [enteredTitle, setEnteredTitle] = useState("");
-  // const [enteredAmount, setEnteredAmount] = useState("");
-  // const [enteredDate, setEnteredDate] = useState("");
+  //the logic is correct but here each data is independent from the other
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   // diffrent way but grouped together under one useState
   // here the user should enter all 3 data together
-  const [userInput, setUserInput] = useState({
-    enteredTitle:'',
-    enteredAmount:'',
-    enteredDate:''
-  });
+  // const [userInput, setUserInput] = useState({
+  //   enteredTitle: "",
+  //   enteredAmount: "",
+  //   enteredDate: "",
+  // });
+
+  // the single useState is much better to use
 
   // not needed
   // document.getElementById("").addEventListener("click", (event) => {});
 
   const titleChangeHandler = (event) => {
     // used with first way
-    // setEnteredTitle(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredTitle:event.target.value,
-    })
+    setEnteredTitle(event.target.value);
 
+    // used for second way
+
+    // this way might not give the correct data
+    // setUserInput({
+    //   ...userInput,
+    //   enteredTitle: event.target.value,
+    // });
+
+    // if you depend on previous state
+    // this way garantees that react gives you the latest data recorded
+    // setUserInput((prevState) => {
+    //   return { ...prevState, enteredTitle: event.target.value };
+    // });
   };
   const amountChangeHandler = (event) => {
-    // setEnteredAmount(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredAmount:event.target.value,
-    })
+    setEnteredAmount(event.target.value);
+
+    // setUserInput({
+    //   ...userInput,
+    //   enteredAmount: event.target.value,
+    // });
+
+    // setUserInput((prevState) => {
+    //   return { ...prevState, enteredAmount: event.target.value };
+    // });
   };
   const dateChangeHandler = (event) => {
-    // setEnteredDate(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredDate:event.target.value,
-    })
+    setEnteredDate(event.target.value);
+
+    // setUserInput({
+    //   ...userInput,
+    //   enteredDate: event.target.value,
+    // });
+
+    // setUserInput((prevState) => {
+    //   return { ...prevState, enteredDate: event.target.value };
+    // });
   };
+
+  const submitHandler = () => {};
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense_controls">
         <div className="new-expense_control">
           <label>Title</label>
@@ -67,8 +90,8 @@ const ExpenseForm = () => {
             onChange={dateChangeHandler}
           />
         </div>
-        <div className="new-expense_action">
-          <button type="submit">Add Expense</button>
+        <div >
+          <button className="new-expense_action" type="submit">Add Expense</button>
         </div>
       </div>
     </form>

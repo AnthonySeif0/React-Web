@@ -22,5 +22,19 @@
 }
 
 .new-expense_action {
-  text-align: right;
+  text-align: center;
+  width: 9em;
+  height: 4em;
+  margin-top: 5em;
+  margin-left: 20em;
+  border: #40005d;
+  background: #40005d;
+  border-radius: 1em;
+  color:white;
+  font-weight: bold
+}
+
+.new-expense_action:hover{
+  cursor: pointer;
+  background-color: blueviolet;
 }
